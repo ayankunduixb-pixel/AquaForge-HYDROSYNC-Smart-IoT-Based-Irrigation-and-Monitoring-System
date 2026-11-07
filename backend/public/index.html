@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10232b">
+  <title>AquaForge | HYDROSYNC</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">A</span><span>AQUAFORGE<small>HYDROSYNC</small></span></a>
+      <div class="top-meta"><span id="deviceLabel">DEVICE · AQUA5</span><span class="pill offline" id="connectionPill">CONNECTING</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div><p class="eyebrow">SMART IRRIGATION · REMOTE OBSERVABILITY</p><h1>System overview</h1><p class="muted">Live telemetry from your HYDROSYNC controller.</p></div>
+        <div class="updated">LAST UPDATE <strong id="lastUpdate">Waiting for device…</strong></div>
+      </section>
+
+      <section class="grid metrics">
+        <article class="metric"><div class="metric-head"><span>Soil moisture</span><span class="icon">◉</span></div><div class="metric-value" id="soilValue">—<small>%</small></div><div class="meter"><span id="soilBar"></span></div><p id="soilHint" class="muted">Waiting for telemetry</p></article>
+        <article class="metric"><div class="metric-head"><span>Tank level</span><span class="icon">▤</span></div><div class="metric-value" id="tankValue">—<small>%</small></div><div class="meter blue"><span id="tankBar"></span></div><p id="tankHint" class="muted">Lockout 15% · recovery 20%</p></article>
+        <article class="metric"><div class="metric-head"><span>Temperature</span><span class="icon">⌁</span></div><div class="metric-value" id="tempValue">—<small>°C</small></div><p id="dhtHint" class="muted">DHT22 awaiting data</p></article>
+        <article class="metric"><div class="metric-head"><span>Humidity</span><span class="icon">◌</span></div><div class="metric-value" id="humidityValue">—<small>%</small></div><p class="muted">Relative humidity</p></article>
+      </section>
+
+      <section class="grid status-grid">
+        <article class="panel pump-panel"><div class="section-title"><div><p class="eyebrow">IRRIGATION</p><h2>Pump status</h2></div><span id="pumpBadge" class="pill neutral">UNKNOWN</span></div><div class="pump-state"><div id="pumpOrb" class="orb">◉</div><div><strong id="pumpState">No device data</strong><p id="modeText" class="muted">Mode: —</p></div></div><p class="note">Remote control is intentionally disabled in Stage 4. Pump decisions remain local to the ESP32.</p></article>
+        <article class="panel"><p class="eyebrow">PROTECTION</p><h2>Safety & storage</h2><div class="health-row"><span>Tank interlock</span><strong id="tankSafety">—</strong></div><div class="health-row"><span>SD card logger</span><strong id="sdStatus">—</strong></div><div class="health-row"><span>DHT22 sensor</span><strong id="dhtStatus">—</strong></div><div class="health-row"><span>Wi-Fi / MQTT</span><strong id="networkStatus">—</strong></div></article>
+      </section>
+
+      <section class="panel chart-panel"><div class="section-title"><div><p class="eyebrow">LIVE HISTORY</p><h2>Sensor trends</h2></div><span class="muted">Latest 60 received samples</span></div><div class="charts"><div><h3>Soil & tank levels</h3><canvas id="waterChart"></canvas></div><div><h3>Temperature & humidity</h3><canvas id="climateChart"></canvas></div></div></section>
+
+      <section class="panel events-panel"><div class="section-title"><div><p class="eyebrow">ACTIVITY</p><h2>Recent events</h2></div><span id="eventCount" class="muted">0 events</span></div><div id="events" class="events"><p class="empty">No events received yet.</p></div></section>
+      <footer><span>AQUAFORGE · HYDROSYNC STAGE 4</span><span>READ-ONLY MONITORING · LOCAL SAFETY CONTROL</span></footer>
+    </main>
+  </div>
+  <script src="/vendor/chart.umd.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/dashboard.js"></script>
+</body>
+</html>

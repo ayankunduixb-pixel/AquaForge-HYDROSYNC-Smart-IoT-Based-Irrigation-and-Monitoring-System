@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "author": "AquaForge / HYDROSYNC Stage 4 (adapted from user's Wokwi circuit)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "soil",
+      "top": -130,
+      "left": -250,
+      "attrs": {
+        "value": "2048"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "tank",
+      "top": -10.9,
+      "left": -249.8,
+      "attrs": {
+        "value": "3500"
+      }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -140,
+      "left": 250,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": 120,
+      "left": 250,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "pumpLed",
+      "top": 250,
+      "left": 20,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pumpRes",
+      "top": 250,
+      "left": 100,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "tankLed",
+      "top": 300,
+      "left": 20,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "tankRes",
+      "top": 300,
+      "left": 100,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "mode",
+      "top": 33.2,
+      "left": 415.9,
+      "attrs": {
+        "value": "1",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "manual",
+      "top": 110,
+      "left": 420,
+      "attrs": {
+        "value": "",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd",
+      "top": 250,
+      "left": 300,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "soil:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "soil:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "soil:SIG",
+      "esp:D34",
+      "green",
+      []
+    ],
+    [
+      "tank:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "tank:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "tank:SIG",
+      "esp:D35",
+      "green",
+      []
+    ],
+    [
+      "dht:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "dht:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "dht:SDA",
+      "esp:D15",
+      "green",
+      []
+    ],
+    [
+      "relay:VCC",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "relay:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "relay:IN",
+      "esp:D22",
+      "green",
+      []
+    ],
+    [
+      "pumpLed:A",
+      "esp:D25",
+      "green",
+      []
+    ],
+    [
+      "pumpLed:C",
+      "pumpRes:1",
+      "black",
+      []
+    ],
+    [
+      "pumpRes:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "tankLed:A",
+      "esp:D26",
+      "green",
+      []
+    ],
+    [
+      "tankLed:C",
+      "tankRes:1",
+      "black",
+      []
+    ],
+    [
+      "tankRes:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "mode:2",
+      "esp:D27",
+      "green",
+      []
+    ],
+    [
+      "mode:1",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "mode:3",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "manual:2",
+      "esp:D14",
+      "green",
+      []
+    ],
+    [
+      "manual:1",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "manual:3",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "sd:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "sd:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "sd:CS",
+      "esp:D5",
+      "white",
+      []
+    ],
+    [
+      "sd:SCK",
+      "esp:D18",
+      "gold",
+      []
+    ],
+    [
+      "sd:DO",
+      "esp:D19",
+      "green",
+      []
+    ],
+    [
+      "sd:DI",
+      "esp:D23",
+      "magenta",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
