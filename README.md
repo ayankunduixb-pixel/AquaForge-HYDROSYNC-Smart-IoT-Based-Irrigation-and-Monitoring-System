@@ -6,7 +6,6 @@ The Wokwi package name is **DHT sensor library for ESPx**. The C++ header remain
 ## Contents
 - `Wokwi_Project_Files/`: ready-to-copy `sketch.ino`, `diagram.json`, `libraries.txt`.
 - `firmware/`: ESP32 Stage 4 firmware and dependency list.
-- `wokwi/`: circuit and Wokwi notes.
 - `backend/`: Node.js MQTT subscriber, Express API, SQLite, Socket.IO and dashboard.
   Chart.js is vendored in `backend/public/vendor/`, so the dashboard does not
   need a public CDN.
@@ -36,7 +35,8 @@ Read-only remote monitoring. No remote pump-control topic or command is implemen
   JSON `device` field in sync.
 
 ## Validation status
-- Wokwi JSON parses and the duplicate Wokwi file sets are byte-identical.
+- Wokwi JSON parses and the firmware in `Wokwi_Project_Files/sketch.ino` is
+  byte-identical to `firmware/AquaForge_HYDROSYNC_Stage4.ino`.
 - Backend unit tests, SQLite ingestion, REST API and MQTT ingestion were checked
   with synthetic telemetry.
 - The firmware has not been compiled in the user's Wokwi session, and the final
