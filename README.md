@@ -312,6 +312,3 @@ No project-level license is declared in this repository; add one before
 redistributing the project as a whole.
 
 ---
-
-**Repository:**
-<https://github.com/ayankunduixb-pixel/AquaForge-HYDROSYNC-Smart-IoT-Based-Irrigation-and-Monitoring-System>
