@@ -1,4 +1,4 @@
-# AquaForge HYDROSYNC — Stage 4
+# AquaForge-HYDROSYNC-Smart-IoT-Based-Irrigation-and-Monitoring-System
 
 An ESP32-based smart irrigation and monitoring system with authoritative local
 control and read-only remote telemetry. Stage 4 extends the Stage 2 irrigation
@@ -310,5 +310,3 @@ License texts are included in [`THIRD_PARTY_LICENSES/`](THIRD_PARTY_LICENSES),
 and the full inventory is in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 No project-level license is declared in this repository; add one before
 redistributing the project as a whole.
-
----
